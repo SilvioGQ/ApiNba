@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin-left: 100px;
+            margin-right: 100px;
+        }
+        .flex{
+            display: flex;
+            height: 97vh;
+            justify-content: center;
+            flex-direction: column;
+            
+        }
+        button{
+            padding: 10px;
+            border: none;
+            color: white;
+            background-color:#145FA4;
+            border-radius: 10px;
+            margin-left: 30px;
+        }
+        input{
+            padding: 10px;
+            border-radius: 10px;
+        }
+        p {
+            font-size: 24px;
+            margin: 0px;
+            padding: 0px;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex">
+        <h1>SUPER API DA NBA</h1>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+        <p>Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti </p>
+        <p>sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+
+        <form style="display: flex; margin-top: 20px;" action="/detalhar" method="POST">
+            <input type="text" name="postId" placeholder="Pesquisar">
+            <button type="submit">Procure por times da NBA</button>
+        </form>
+        <img src="./imgs/nba.png" style="height: 90vh; width:50vw; position: absolute; right: 0px;"/>
+    </div>
+</body>
+</html>
