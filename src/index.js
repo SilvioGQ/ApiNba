@@ -14,7 +14,20 @@ app.set('view engine', 'ejs');
 app.set('views', './src/views');
 
 app.get('/', async (req, res) => {
-        return res.render('home');
+    let posts=[];
+    const getTeams = 'https://www.balldontlie.io/api/v1/teams';
+    for(let i=1;i<=5;i++){
+        const URL = `https://jsonplaceholder.typicode.com/posts/${i}`
+        const resposta = await axios.get(URL);
+        posts.push(resposta.data);
+    }
+    const teams = await axios.get(getTeams);
+    console.log(posts)
+    try{
+        return res.render('home', {posts, teams:teams.data.data});
+    }catch (err) {
+        res.json(err)
+    }
 })
 
 app.post('/detalhar', async (req, res) => {
