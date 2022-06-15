@@ -22,7 +22,6 @@ app.get('/', async (req, res) => {
         posts.push(resposta.data);
     }
     const teams = await axios.get(getTeams);
-    console.log(posts)
     try{
         return res.render('home', {posts, teams:teams.data.data});
     }catch (err) {
