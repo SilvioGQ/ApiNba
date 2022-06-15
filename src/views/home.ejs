@@ -42,7 +42,7 @@
             color: white;
             background-color:#145FA4;
             border-radius: 10px;
-            margin-left: 10px;
+            margin-right: 30px;
         }
         input{
             padding: 10px;
@@ -65,11 +65,9 @@
             font-weight: bold;
             font-size: 24px;
             margin: 5px 0px 5px 0px;
-            margin-left: 10px;
         }
         .subtitle {
             font-size: 14px;
-            margin-left: 10px;
         }
         .blogOverflow {
             display: flex;
@@ -79,11 +77,11 @@
             display: flex;
             overflow: auto;
             overflow-x: scroll;
-            width: 30%;
+            width: 27%;
             margin-top: 40px;
         }
         .blogImage{
-            height: 135px;
+            height: 120px;
             width: 100%;
             border-radius: 20px 20px 0px 0px;
         }
@@ -109,7 +107,7 @@
             <div class="Overflow">
             <% for(let i = 0; i < teams.length; i++){ %>
                 <div class="align">
-                    <img src="./imgs/Cleveland.png">
+                    <img src="<%= teams[i].image %>" style="width:150px;height:150px">
                     <p class="subtitle"><%= teams[i].full_name %></p>
                 </div>
             <% } %>

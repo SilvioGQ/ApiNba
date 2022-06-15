@@ -21,9 +21,16 @@ app.get('/', async (req, res) => {
         const resposta = await axios.get(URL);
         posts.push(resposta.data);
     }
-    const teams = await axios.get(getTeams);
+    const teamsData = await axios.get(getTeams);
+    if(teamsData){
+        teams = teamsData.data
+        for(let i=0;i<teams.data.length;i++){
+        teams.data[i].image=`http://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/${teams.data[i].abbreviation.toLowerCase()}.png`
+        }
+    }
+    console.log(teams.data)
     try{
-        return res.render('home', {posts, teams:teams.data.data});
+        return res.render('home', {posts, teams:teams.data});
     }catch (err) {
         res.json(err)
     }
