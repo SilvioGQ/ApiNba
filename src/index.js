@@ -38,11 +38,18 @@ app.get('/', async (req, res) => {
 
 app.post('/detalhar', async (req, res) => {
     const { postId } = req.body;
-    const resultado = await buscaPostNaAPI(postId);
-    if (resultado) {
-        return res.send({ resultado });
+    let teamsData = await buscaPostNaAPI(postId);
+    if(teamsData && teamsData.length > 0){
+        for(let i=0;i<teamsData.length;i++){
+            // console.log(teamsData[i])
+        teamsData[i].image=`http://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/${teamsData[i].abbreviation.toLowerCase()}.png`
+        }
     }
-    return res.send("ooops, id nao encontrado");
+    try{
+        return res.render('search', {teams:teamsData, team:postId});
+    }catch (err) {
+        res.json(err)
+    }
 })
 
 app.post('/criar', async (req, res) => {

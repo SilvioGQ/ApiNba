@@ -10,13 +10,12 @@
             font-family: serif;
             margin-left: 100px;
             margin-right: 100px;
-            margin-top: 100px;
             color: #fff;
         }
         .flex{
             display: flex;
             height: 97vh;
-            justify-content: flex-start;
+            justify-content: center;
             flex-direction: column;
         }
         .flexRow{
@@ -42,7 +41,7 @@
             color: white;
             background-color:#145FA4;
             border-radius: 10px;
-            margin-right: 30px;
+            margin-left:8px;
         }
         input{
             padding: 10px;
@@ -57,17 +56,36 @@
         .containerblog {
             border-radius: 20px;
             background-color: #CB8A03;
-            height: 35vh;
+            height: 38vh;
             width: 17vw;
             margin-right: 20px;
         }
         .title {
             font-weight: bold;
             font-size: 24px;
-            margin: 5px 0px 5px 0px;
+            margin: 5px 5px 5px 8px;
         }
         .subtitle {
             font-size: 14px;
+            margin: 5px 5px 5px 8px;
+        }
+        @media only screen and (max-width: 1500px) {
+            .title {
+            font-weight: bold;
+            font-size: 18px;
+        }
+        button{
+            padding: 7px 9px 7px 9px;
+            border: none;
+            color: white;
+            background-color:#145FA4;
+            border-radius: 10px;
+            margin-right: 30px;
+            cursor: pointer;
+        }
+            .subtitle {
+            font-size: 12px;
+        }
         }
         .blogOverflow {
             display: flex;
@@ -75,13 +93,12 @@
         }
         .Overflow {
             display: flex;
-            overflow: auto;
             overflow-x: scroll;
-            width: 27%;
+            width: 67vw;
             margin-top: 40px;
         }
         .blogImage{
-            height: 120px;
+            height: 15vh;
             width: 100%;
             border-radius: 20px 20px 0px 0px;
         }
@@ -121,8 +138,8 @@
         <% for(let i = 0; i < posts.length; i++){ %>
         <div class="containerblog">
             <img class="blogImage" src="./imgs/kobe.jpg"/>
-            <p class="title"><%= posts[i].title.substr(0,30) %></p>
-            <p class="subtitle"><%= posts[i].body.substr(0,150) %></p>
+            <p class="title"><%= posts[i].title.substr(0,25) %></p>
+            <p class="subtitle"><%= posts[i].body.substr(0,130) %></p>
             <button class="buttonBlue">Ler mais</button>
         </div>
         <% } %>
